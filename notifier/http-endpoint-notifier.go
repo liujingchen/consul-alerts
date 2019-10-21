@@ -66,6 +66,7 @@ func (notifier *HttpEndpointNotifier) Notify(messages Messages) bool {
 		if statusCode != 200 {
 			body, _ := ioutil.ReadAll(res.Body)
 			log.Println("Unable to notify HTTP endpoint:", string(body))
+			log.Println("Payload:", requestBody)
 			return false
 		} else {
 			log.Println("Notification sent to HTTP endpoint.")
